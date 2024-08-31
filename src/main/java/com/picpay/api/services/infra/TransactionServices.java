@@ -49,15 +49,17 @@ public class TransactionServices {
     // three points to validate:
     // first: the payer is not the payee
     // second: the payer must have sufficient balance
-    // third: the payer MUST be a common wallet type
+    // third: the payer MUST be a COMUM wallet type
 
     // 1 - validate
     validate(transaction);
     // 2- create the transaction
     var newTransaction = transactionRepository.save(transaction);
-    // 3 - get the wallet and debit
+    // 3 - get the wallet and debit and credit
     var getWalletPayer = walletRepository.findById(transaction.payer()).get();
+    var getWalletPayee = walletRepository.findById(transaction.payee()).get();
     walletRepository.save(getWalletPayer.debit(transaction.value()));
+    walletRepository.save(getWalletPayee.credit(transaction.value()));
 
     // 4 - call external services
     // 1° authorize transaction (if possible)
@@ -70,7 +72,7 @@ public class TransactionServices {
 
   private Optional<Wallet> getValidPayerWallet(Transaction transaction) {
     return walletRepository.findById(transaction.payer())
-        .filter(payer -> payer.type().getValue() == WalletType.COMMON.getValue()
+        .filter(payer -> payer.type() == WalletType.COMUM.getValue()
             && payer.balance().compareTo(transaction.value()) >= 0
             && !payer.id().equals(transaction.payee()));
   }

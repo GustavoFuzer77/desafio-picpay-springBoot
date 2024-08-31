@@ -1,6 +1,8 @@
 package com.picpay.api.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.ListCrudRepository;
+
 import com.picpay.api.domain.wallet.Wallet;
 
-public interface WalletRepository extends CrudRepository<Wallet, Long> {}
+public interface WalletRepository extends ListCrudRepository<Wallet, Long> {
+}

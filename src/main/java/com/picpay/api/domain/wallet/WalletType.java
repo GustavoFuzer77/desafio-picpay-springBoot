@@ -1,7 +1,7 @@
 package com.picpay.api.domain.wallet;
 
 public enum WalletType {
-  COMMON(1), SHOPKEEPER(2);
+  COMUM(1), LOJISTA(2);
 
   private int value;
 
@@ -10,7 +10,6 @@ public enum WalletType {
   }
 
   public int getValue() {
-    return this.value;
+    return value;
   }
-
 }
