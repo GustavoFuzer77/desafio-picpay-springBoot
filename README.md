@@ -64,6 +64,6 @@ O projeto inclui um arquivo docker-compose.yml que configura o Kafka e o Postgre
 ## Contato
 Para dúvidas ou sugestões, entre em contato:
 
-Nome: Gustavo Fuzer
-Email: gustavofuzer256@gmail.com
-LinkedIn: https://www.linkedin.com/in/gustavo-fuzer-7286b8268/
+- Nome: Gustavo Fuzer
+- Email: gustavofuzer256@gmail.com
+- LinkedIn: https://www.linkedin.com/in/gustavo-fuzer-7286b8268/
